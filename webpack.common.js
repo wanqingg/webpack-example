@@ -8,19 +8,10 @@ module.exports = {
     bundle: path.resolve(__dirname, "src/index.js"),
     vendor: path.resolve(__dirname, "src/vendor.js"),
   },
+  /* source map */
+  devtool: "source-map",
   module: {
     rules: [
-      {
-        test: /\.s[ac]ss$/i /*any files that end with .scss*/,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
-      },
       {
         /* babel is used for backwards compatible browsers */
         test: /\.js$/i /*any files that end with .js*/,

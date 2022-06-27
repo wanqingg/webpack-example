@@ -10,8 +10,6 @@ module.exports = merge(common, {
     clean: true,
     assetModuleFilename: "[name][ext]",
   },
-  /* source map */
-  devtool: "source-map",
   devServer: {
     static: {
       directory: path.resolve(__dirname, "dist"),
@@ -21,5 +19,20 @@ module.exports = merge(common, {
     hot: true /* hot reloading */,
     compress: true,
     historyApiFallback: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i /*any files that end with .scss*/,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+    ],
   },
 });
