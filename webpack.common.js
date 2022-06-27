@@ -4,28 +4,9 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  mode: "development",
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
     vendor: path.resolve(__dirname, "src/vendor.js"),
-  },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
-    clean: true,
-    assetModuleFilename: "[name][ext]",
-  },
-  /* source map */
-  devtool: "source-map",
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, "dist"),
-    },
-    port: 3000,
-    open: true /* automatically opens the browser */,
-    hot: true /* hot reloading */,
-    compress: true,
-    historyApiFallback: true,
   },
   module: {
     rules: [
